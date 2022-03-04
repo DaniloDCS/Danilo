@@ -1,0 +1,34 @@
+ <div id="message-alert"></div>
+ <div class="search-color">
+   <label>
+     <input required type="search" id="search-color">
+     <span><i class="fas fa-search"></i> Find a color enter the name</span>
+   </label>
+ </div>
+ <div id="color-list"></div>
+ <button id="btn-list"> <i class="fas fa-cog"></i> </button>
+ <div id="list-of-favorites-colors">
+   <div class="favorites-colors">
+     <div class="col-1">
+       <h2 class="modal-title">Favorites <i id="btn-close-modal" class="fas fa-times-circle"></i> </h2>
+       <div id="favorites-colors"></div>
+     </div>
+     <div class="col-2">
+       <h2 class="modal-title"> Export File <i class="fas fa-download"></i> </h2>
+       <div class="btns-export">
+         <button onclick="exportColors('css', 'file')">CSS</button>
+         <button onclick="exportColors('json', 'file')">JSON</button>
+         <button onclick="exportColors('csv', 'file')">CSV</button>
+         <button onclick="exportColors('txt', 'file')">TXT (css)</button>
+         <button onclick="exportColors('html', 'file')">HTML (css)</button>
+       </div>
+       <h2 class="modal-title">Copy in Format <i class="fas fa-copy"></i> </h2>
+       <div class="btns-export">
+         <button onclick="exportColors('css', 'copy')">CSS</button>
+         <button onclick="exportColors('json', 'copy')">JSON</button>
+         <button onclick="exportColors('csv', 'copy')">CSV</button>
+         <button onclick="exportColors('html', 'copy')">HTML (css)</button>
+       </div>
+     </div>
+   </div>
+ </div>

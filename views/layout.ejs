@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danilo Costa | <%= title %></title>
+  <meta name="author" content="Danilo Costa">
+  <meta name="description" content="This is my portfolio">
+  <link rel="stylesheet" href="/public/css/all.css">
+  <link rel="stylesheet" href="/public/css/<%= title.toLowerCase().replace(/ /g, '') %>.css">
+  <link rel="stylesheet" href="/fontawesome/css/all.css">
+  <script defer src="/public/js/<%= title.toLowerCase().replace(/ /g, '') %>.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="menu-app">
+      <h1 class="my-app-title"><a href="/"></a>Danilo Costa</h1>
+      <div class="search-app">
+        <input type="text" placeholder="Search...">
+        <i class="fas fa-search"></i>
+      </div>
+      <ul class="routes">
+        <li><a href="/"> <i class="fas fa-home"></i> Home</a></li>
+        <li><a href="/about"> <i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="/contact"> <i class="fas fa-envelope-open"></i> Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="container">
+    <%- body %>
+  </div>
+</body>
+
+</html>

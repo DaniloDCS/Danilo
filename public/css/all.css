@@ -1,0 +1,105 @@
+@font-face {
+	src: url("/public/fonts/Roboto/Roboto-Black.ttf");
+	font-family: "Roboto Black";
+}
+
+:root {
+	--roboto: "Roboto Black", sans-serif;
+	--blue: #09214A;
+	--blue-1: #14273E;
+	--blue-2: #0D0B20;
+	--blue-3: #200682;
+	--blue-4: #160564;
+	--blue-5: #2E20C1;
+	--blue-6: #143DF0;
+	--green: #34EA28;
+	--green-1: #4CFF3A;
+	--any: #2F5877;
+	--any-1: #230F3D;
+	--any-2: #5B3E34;
+	--any-3: #1C456C;
+	--any-4: #293850;
+	--red: #E81010;
+	--red-1: #D70C0C;
+	--red-2: #BF1515;
+	--red-3: #72010C;
+	--yellow: #FDFD1B;
+	--yellow-1: #F3FE1B;
+	--black: #0E0E0E;
+	--black-1: #0C0C0C;
+	--black-2: #020202;
+	--black-3: #000000;
+	--black-4: #010101;
+	--gray: #898989;
+	--gray-1: #2D2D2D;
+	--gray-2: #363636;
+	--gray-3: #222222;
+	--gray-4: #4D4D4D;
+	--pink: #F622E7;
+	--pink-1: #FA33F6;
+	--pink-2: #F34AC9;
+	--pink-3: #DE1056;
+	--orange: #FC7D17;
+	--orange-1: #F37805;
+	--orange-2: #E4C108;
+	--orange-3: #FAE00C;
+	--orange-4: #F59B15;
+	--orange-5: #D32F07;
+	--purple: #580986;
+	--purple-1: #540272;
+	--purple-2: #6A0A71;
+	--purple-3: #68038A;
+	--cyan: #25B39F;
+	--cyan-1: #0D9DBA;
+	--cyan-2: #07BE97;
+	--cyan-3: #229BB5;
+	--cyan-4: #1FB8C4;
+	--cyan-5: #1C979B;
+	--ocean: #0F3B3B;
+	--ocean-1: #154F49;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	font-family: var(--roboto);
+	box-sizing: border-box;
+	font-weight: 500;
+}
+
+html,
+body,
+.container {
+	height: 100%;
+}
+
+.menu-app,
+.routes {
+	display: flex;
+}
+
+.menu-app {
+	align-items: center;
+}
+
+.menu-app {
+	justify-content: space-between;
+}
+
+.menu-app {
+	padding: 20px;
+}
+
+.my-app-title {
+  width: 10%;
+}
+
+.search-app {
+  width: 70%;
+}
+
+.routes {
+  width: 15%;
+	list-style-type: none;
+  justify-content: space-between;
+}

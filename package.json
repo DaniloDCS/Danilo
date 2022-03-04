@@ -1,0 +1,29 @@
+{
+  "name": "projects",
+  "version": "1.0.0",
+  "description": "My portifolio ",
+  "main": "src/server.ts",
+  "repository": "https://github.com/DaniloDCS/projects.git",
+  "author": "Danilo <danillo.ifpb@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node src/server.ts",
+    "build": "tsc",
+    "app": "nodemon src/server.ts"
+  },
+  "engines": {
+    "node": "16.13.0",
+    "yarn": "1.22.17"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.0.0",
+    "@types/express": "^4.17.13",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-ejs-layouts": "^2.5.1",
+    "sucrase": "^3.20.3",
+    "typescript": "^4.6.2"
+  }
+}
