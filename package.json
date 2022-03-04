@@ -7,8 +7,8 @@
   "author": "Danilo <danillo.ifpb@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node src/server.ts",
-    "build": "tsc",
+    "start": "node dist/server.js",
+    "build": "sucrase ./src/ -d ./dist/ --transforms typescript,imports",
     "app": "nodemon src/server.ts"
   },
   "engines": {
