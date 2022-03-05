@@ -362,7 +362,7 @@ const colorsNames = ["black", "blue", "brown", "gray", "green", "orange", "pink"
 const initialColor = colorsNames[Math.floor(Math.random() * colorsNames.length)];
 
 colorful(initialColor);
-messageAlertShow("<i class='fas fa-info-circle'></i> Click on a color to copy it to clipboard!", "#EE3C15");
+messageAlertShow("<i class='fas fa-info-circle'></i> Click in <i class='fas fa-clipboard'></i> to copy color to clipboard!", "#EE3C15");
 
 function exportColors(typeFile, typeExport) {
 
