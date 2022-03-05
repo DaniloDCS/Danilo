@@ -18,6 +18,9 @@
 </head>
 
 <body>
+  <div id="scroll-progress">
+    <div id="scroll-progress-bar"></div>
+  </div>
   <header>
     <nav class="menu-app">
       <h1 class="my-app-title"><a href="/"></a>Danilo Costa</h1>
@@ -76,6 +79,150 @@
     <button id="to-top"><i class="fas fa-up-long"></i></button>
   </footer>
   <script>
+  const apps = {
+  AppsOfTimer: [{
+    name: "Weather",
+    icon: "fas fa-cloud",
+    available: false
+  }, {
+    name: "Calendar",
+    icon: "fas fa-calendar-days",
+    available: false
+  }, {
+    name: "Clock",
+    icon: "fas fa-clock",
+    available: false
+  }, {
+    name: "Countdown",
+    icon: "fas fa-stopwatch-20",
+    available: false
+  }, {
+    name: "Pomodoro",
+    icon: "fas fa-apple-whole",
+    available: false
+  }, {
+    name: "Reminder",
+    icon: "fas fa-bell",
+    available: false
+  }, {
+    name: "Timer",
+    icon: "fas fa-stopwatch",
+    available: false
+  }],
+  forDevs: [{
+    name: "Todo",
+    icon: "fas fa-clipboard-check",
+    available: false
+  }, {
+    name: "Notes",
+    icon: "fas fa-notes-medical",
+    available: false
+  }, {
+    name: "Chat",
+    icon: "fas fa-comments",
+    available: false
+  }, {
+    name: "Code",
+    icon: "fas fa-terminal",
+    available: false
+  }, {
+    name: "Colorful",
+    icon: "fas fa-swatchbook",
+    available: false
+  }, {
+    name: "Painting",
+    icon: "fas fa-paintbrush",
+    available: false
+  }, {
+    name: "REST API",
+    icon: "fas fa-paper-plane",
+    available: false
+  }, {
+    name: "Border Radius Previewer",
+    icon: "fas fa-draw-polygon",
+    available: false
+  }, {
+    name: "Markdown Previewer",
+    icon: "fab fa-markdown",
+    available: false
+  }, {
+    name: "Keyboard",
+    icon: "fas fa-keyboard",
+    available: false
+  }],
+  mathApps: [{
+    name: "Calculator",
+    icon: "fas fa-calculator",
+    available: false
+  }, {
+    name: "Calculate the area",
+    icon: "fas fa-ruler-horizontal",
+    available: false
+  }, {
+    name: "Calculate the volume",
+    icon: "fas fa-whiskey-glass",
+    available: false
+  }, {
+    name: "Temperature converter",
+    icon: "fas fa-temperature-low",
+    available: false
+  }, {
+    name: "Convert currency",
+    icon: "fas fa-coins",
+    available: false
+  }, {
+    name: "Number Base Convert",
+    icon: "fas fa-0",
+    available: false
+  }],
+  otherApps: [{
+    name: "Quiz",
+    icon: "fas fa-question",
+    available: false
+  }, {
+    name: "Random Numbers",
+    icon: "fas fa-repeat",
+    available: false
+  }, {
+    name: "Writing",
+    icon: "fas fa-paragraph",
+    available: false
+  }, {
+    name: "Find My Movie",
+    icon: "fas fa-clapperboard",
+    available: false
+  }, {
+    name: "Find My Song",
+    icon: "fas fa-record-vinyl",
+    available: false
+  }, {
+    name: "Find My Book",
+    icon: "fas fa-book",
+    available: false
+  }, {
+    name: "Crop Images",
+    icon: "fas fa-pen-ruler",
+    available: false
+  }],
+  games: [{
+    name: "Tic-Tac-Toe",
+    icon: "fas fa-hashtag",
+    available: false
+  }, {
+    name: "Snake",
+    icon: "fas fa-dragon",
+    available: false
+  }, {
+    name: "Pong",
+    icon: "fas fa-gamepad",
+    available: false
+  }, {
+    name: "Hangman",
+    icon: "fas fa-gamepad",
+    available: false
+  }]
+}
+
     const queryApp = document.querySelector("#query-app");
     const queryApp2 = document.querySelector("#query-app-2");
     const searchAppsModalList = document.querySelector("#search-apps-modal-list");
@@ -123,6 +270,14 @@
         top: 0,
         behavior: "smooth"
       });
+    });
+
+    document.addEventListener("scroll", () => {
+      let currentPosition = window.scrollY;
+      let windowHeight = window.innerHeight;
+      let percentage = (currentPosition / (document.body.scrollHeight - windowHeight)) * 100;
+      
+      document.querySelector("#scroll-progress-bar").style.width = `${percentage}%`;
     });
   </script>
 </body>

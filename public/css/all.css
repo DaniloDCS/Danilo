@@ -113,7 +113,6 @@
 
 @media screen and (min-width: 1200px) {}
 
-
 * {
   padding: 0;
   margin: 0;
@@ -125,6 +124,20 @@
 html,
 body {
   height: 100%;
+}
+
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 5px;
+  filter: drop-shadow(0 0 5px #333);
+}
+
+#scroll-progress-bar {
+  width: 100%;
+  height: 100%;
+  background: green;
 }
 
 .menu-app,
@@ -194,6 +207,7 @@ body {
 
 #search-apps-modal-list {
   position: fixed;
+  z-index: 100;
   top: 10%;
   left: 10%;
   width: 80%;
