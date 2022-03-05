@@ -22,13 +22,38 @@
     <nav class="menu-app">
       <h1 class="my-app-title"><a href="/"></a>Danilo Costa</h1>
       <div class="search-app">
-        <input type="text" placeholder="Search...">
-        <i class="fas fa-search"></i>
+        <input required id="query-app" type="search" placeholder="Search...">
+        <div id="search-apps-modal-list">
+          <div class="modal-search-input">
+            <input required id="query-app-2" type="search" placeholder="Search...">
+            <i class="fas fa-search"></i>
+          </div>
+          <div id="search-list-apps"></div>
+        </div>
+        <i class="my-search-icon fas fa-search"></i>
       </div>
       <ul class="routes">
-        <li><a href="/"> <i class="fas fa-home"></i> Home</a></li>
-        <li><a href="/about"> <i class="fas fa-info-circle"></i> About</a></li>
-        <li><a href="/contact"> <i class="fas fa-envelope-open"></i> Contact</a></li>
+        <li>
+          <i id="btn-open-modal-search-app" class="fas fa-search"></i>
+        </li>
+        <li>
+          <a href="/">
+            <i class="fas fa-home" title="Back to home"></i>
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="/about">
+            <i class="fas fa-info-circle" title="About developer"></i>
+            <span>About</span>
+          </a>
+        </li>
+        <li>
+          <a href="/contact">
+            <i class="fas fa-envelope-open" title="Contact the developer"></i>
+            <span>Contact</span>
+          </a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -36,8 +61,70 @@
     <%- body %>
   </div>
   <footer>
-
+    <p>Danilo Costa <span id="fullyear"></span></p>
+    <p>All rights reserved</p>
+    <div class="media-socials">
+      <a class="link-for-instagram" href="https://www.instagram.com/danilocosstaa" target="_blank"><i
+          class="fab fa-instagram"></i></a>
+      <a class="link-for-instagram" href="https://www.instagram.com/positrontechnology" target="_blank"><i
+          class="fab fa-instagram"></i></a>
+      <a class="link-for-linkedin" href="https://www.linkedin.com/in/danillo-costta" target="_blank"><i
+          class="fab fa-linkedin"></i></a>
+      <a class="link-for-github" href="https://www.github.com/DaniloDCS" target="_blank"><i
+          class="fab fa-github"></i></a>
+    </div>
+    <button id="to-top"><i class="fas fa-up-long"></i></button>
   </footer>
+  <script>
+    const queryApp = document.querySelector("#query-app");
+    const queryApp2 = document.querySelector("#query-app-2");
+    const searchAppsModalList = document.querySelector("#search-apps-modal-list");
+    const searchListApps = document.querySelector("#search-list-apps");
+    let appsList = [];
+
+    queryApp.addEventListener("input", () => searchApps(1));
+    queryApp2.addEventListener("input", () => searchApps(2));
+
+    function searchApps(input) {
+
+      if (input === 1) queryApp2.value = queryApp.value;
+      else queryApp.value = queryApp2.value;
+
+      searchListApps.innerHTML = "";
+      appsList = [];
+
+      for (let classification in apps) {
+        for (const app of apps[classification]) {
+          if (app.name.toLowerCase().indexOf(queryApp.value.toLowerCase()) !== -1) appsList.push(app);
+        }
+      }
+
+      appsList.forEach(application => {
+        let listItem = document.createElement("a");
+        listItem.href = `\\${application.name.toLowerCase().replace(/ /g, "")}`;
+        listItem.classList.add("list-search-app-item");
+        listItem.innerHTML = `
+      <i class="${application.icon}"></i>
+      <span>${application.name}</span>
+      `;
+        searchListApps.appendChild(listItem);
+      })
+    }
+
+    const btnOpenModalSearchApps = document.querySelector("#btn-open-modal-search-app");
+    btnOpenModalSearchApps.addEventListener("click", () => {
+      searchAppsModalList.style.display = "flex";
+      searchAppsModalList.style.animation = "ball .6s ease-out";
+    });
+
+    const toTop = document.querySelector("#to-top");
+    toTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
 </body>
 
 </html>

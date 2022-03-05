@@ -211,4 +211,16 @@ route.get("/cropimages", async (req: Request, res: Response) => {
   });
 });
 
+route.get("/about", async (req: Request, res: Response) => {
+  return res.render("pages/about", {
+    title: "About",
+  });
+});
+
+route.get("/contact", async (req: Request, res: Response) => {
+  return res.render("pages/contact", {
+    title: "Contact",
+  });
+});
+
 export default route;
