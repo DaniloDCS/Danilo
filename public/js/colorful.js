@@ -53,17 +53,29 @@ function createAnElement(name, attributes, css) {
 }
 
 function favoriteColorAdd(color, element) {
+  let colorItemID = "U" + Math.floor(Date.now() * Math.random()).toString(36);
 
   if (favoriteColors[CURRENT_COLOR] === undefined) favoriteColors[CURRENT_COLOR] = [];
-  if (favoriteColors[CURRENT_COLOR].includes(color)) return;
+  if (favoriteColors[CURRENT_COLOR].includes(color)) {
+    element.style.color = ["white", "gray", "yellow"].includes(CURRENT_COLOR) ? "black" : "white";
+    favoriteColors[CURRENT_COLOR] = favoriteColors[CURRENT_COLOR].filter(c => c !== color);
+    messageAlertShow(" <i class='fas fa-times-circle'></i> Your color has been removed to favorites", "red");
+
+    for (let index = 0; index < document.querySelector("#favorites-colors").childElementCount; index++) {
+      const element = document.querySelector("#favorites-colors").children[index];
+      if (element.innerText === color) {
+        element.remove();
+      }
+    } 
+
+    return;
+  };
 
   favoriteColors[CURRENT_COLOR].push(color);
 
   element.style.color = "yellow";
   messageAlertShow(" <i class='fas fa-star'></i> Your color has been added to favorites", "blue");
   btnList.style.animation = "trim 1.3s";
-
-  let colorItemID = "U" + Math.floor(Date.now() * Math.random()).toString(36);
 
   let colorItem = createAnElement("div", {
     innerHTML: color,
@@ -115,7 +127,15 @@ function messageAlertShow(text, color) {
 }
 
 function copyToClipboard(text, message) {
-  navigator.clipboard.writeText(text);
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text);
+  } else if (window.clipboardData) {
+    window.clipboardData.setData("Text", text);
+  } else {
+    messageAlertShow(`<i class="fas fa-info-circle"></i> Your browser does not support this function! `, "red");
+    return;
+  }
+
   messageAlertShow(`<i class='fas fa-clipboard'></i> ${message.message}`, message.color);
 }
 
@@ -177,7 +197,8 @@ function createListExhibition(list) {
       className: "color-item"
     }, {
       backgroundColor: color,
-      gridRow: `span ${Math.floor(Math.random() * (4 - 1)) + 1}`
+      gridRow: `span ${Math.floor(Math.random() * (4 - 1)) + 1}`,
+      color: (["white", "yellow"].includes(CURRENT_COLOR) ? "black" : "white")
     });
 
     let spanColor = createAnElement("span", {
@@ -189,7 +210,9 @@ function createListExhibition(list) {
       className: "button-copy",
       innerHTML: "<i class='fas fa-copy'></i>",
       onClick: `copyToClipboard("${color}", { message: "Your color has been copied to clipboard", color: "#550130" })`
-    }, {});
+    }, {
+      color: (["white", "yellow"].includes(CURRENT_COLOR)) ? "black" : "white"
+    });
 
     let buttonFavorite = createAnElement("button", {
       className: "button-favorite",
@@ -197,7 +220,7 @@ function createListExhibition(list) {
       onClick: `favoriteColorAdd("${color}", this)`,
       id: "B" + Math.floor(Date.now() * Math.random()).toString(36)
     }, {
-      color: (favoriteColors[CURRENT_COLOR] && favoriteColors[CURRENT_COLOR].includes(color)) ? "yellow" : "white"
+      color: (favoriteColors[CURRENT_COLOR] && favoriteColors[CURRENT_COLOR].includes(color)) ? "yellow" : (["white", "yellow"].includes(CURRENT_COLOR) ? "black" : "white")
     });
 
     colorItem.append(spanColor, buttonFavorite, buttonCopy);
