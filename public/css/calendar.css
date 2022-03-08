@@ -1,0 +1,211 @@
+.btn-visualization-group {
+  display: flex;
+  align-items: center;
+}
+
+.btn-visualization-group {
+  justify-content: space-around;
+}
+
+.btn-visualization {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  padding: 12px;
+  font-size: large;
+  color: var(--blue-6);
+  border-radius: 50px;
+}
+
+.btn-visualization span {
+  color: transparent;
+}
+
+.btn-visualization.active {
+  background-color: rgba(20, 61, 240, 0.1);
+}
+
+.btn-visualization.active span {
+  color: var(--blue-6);
+}
+
+.btn-visualization:hover {
+  background-color: rgba(20, 61, 240, 0.1);
+}
+
+.btn-visualization:hover:not(.active) span {
+  color: var(--blue-6);
+  animation: show-text 0.8s;
+}
+
+@keyframes show-text {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.calendar {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calendar th {
+  text-align: center;
+  padding: 5px;
+  background-color: #eee;
+}
+
+.calendar td {
+  text-align: center;
+  padding: 15px;
+}
+
+.current-day {
+  background-color: green;
+}
+
+.holiday {
+  background-color: red;
+}
+
+#calendar-exhibition {
+  width: 100%;
+  height: 90%;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  font-size: large;
+  color: var(--blue-6);
+  border-radius: 50px;
+}
+
+.calendar-daily {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: xx-large;
+}
+
+.calendar-daily i {
+  width: 60px;
+  height: 60px;
+  font-size: xx-large;
+  color: var(--blue-6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-daily i:hover {
+  background-color: rgba(20, 61, 240, 0.1);
+}
+
+.calendar-daily .daily,
+.calendar-daily .current-week {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.calendar-daily .current-week {
+  height: 50px;
+  background-color: var(--blue-6);
+  border-radius: 50px;
+  color: white;
+  margin-left: 20px;
+  padding: 10px 20px;
+}
+
+.current-day,
+.holiday,
+.awareness-month {
+  color: white;
+}
+
+.calendar-group {
+  padding: 20px;
+}
+
+.calendar-group .calendar thead tr td:last-child {
+  text-align: left;
+}
+
+@media screen and (max-width: 576px) {
+  .calendar-group.annually {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .calendar-group.annually .calendar {
+    width: 100%
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .calendar-group.annually {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .calendar-group.annually .calendar {
+    width: 100%
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .calendar-group.annually {
+    flex-direction: row;
+    align-items: start;
+  }
+
+  .calendar-group.annually .calendar {
+    width: 50%
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .calendar-group.annually {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+
+  .calendar-group.annually .calendar {
+    width: 33%
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .calendar-group.annually {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+
+  .calendar-group.annually .calendar {
+    width: 25%
+  }
+}
+
+.calendar-group.annually {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.calendar-group.annually .calendar {
+  margin-top: 50px;
+  border: 1px solid var(--blue-6);
+}
+
+.calendar-group.annually>h2 {
+  width: 100%;
+}
